@@ -4,7 +4,7 @@
     "entry": [
         {% set entry_comma = joiner(",") %}
         {% for rxGov in rxGovResponse %}
-            {{ entry_comma() }}{% include "Resources/MedicationDispense" %}
+            {{ entry_comma() }}{% include "Resources/MedicationDispense.j2" %}
         {% endfor %}
     ]
 }

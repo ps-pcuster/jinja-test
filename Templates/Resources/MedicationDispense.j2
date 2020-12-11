@@ -1,15 +1,15 @@
-{% import "helpers" as helpers %}
+{% import "helpers.j2" as helpers %}
 
 {
     "resource": {
         "resourceType": "MedicationDispense",
         "contained":[
             {% set contained_comma = joiner(",") %}
-            {{ contained_comma() }}{% include "Resources/Patient" %}
-            {{ contained_comma() }}{% include "Resources/Medication" %}
-            {{ contained_comma() }}{% include "Resources/Practitioner "%}
-            {{ contained_comma() }}{% include "Resources/Location" %}
-            {{ contained_comma() }}{% include "Resources/MedicationIdentifier" %}
+            {{ contained_comma() }}{% include "Resources/Patient.j2" %}
+            {{ contained_comma() }}{% include "Resources/Medication.j2" %}
+            {{ contained_comma() }}{% include "Resources/Practitioner.j2"%}
+            {{ contained_comma() }}{% include "Resources/Location.j2" %}
+            {{ contained_comma() }}{% include "Resources/MedicationIdentifier.j2" %}
         ],
         "identifier": {
             "system": "https://api.crisphealth.org/systems/dispenseId",

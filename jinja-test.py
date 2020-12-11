@@ -9,5 +9,5 @@ env = Environment(
     loader=FileSystemLoader('./templates'),
     autoescape=select_autoescape(['html', 'xml'])
 )
-template = env.get_template('Bundle')
+template = env.get_template('Bundle.j2')
 output.write(template.render(rxGovResponse=d))

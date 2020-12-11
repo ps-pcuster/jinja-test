@@ -62,7 +62,6 @@
 
             ,
 
-
 {
     "resourceType": "Medication",
     "id": "uuid:1.2.3.4.5.test.",
@@ -84,9 +83,15 @@
             }
         ]
     },
-    
+    "form": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "None"
+            }
+        ]
+    }
 }
-
             ,
 
 
@@ -371,7 +376,31 @@
 
             ,
 
-
+{
+    "resourceType": "Medication",
+    "id": "uuid:1.2.3.4.5.test.",
+    "extension": [
+        
+        
+    ],
+    "code": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/sid/ndc",
+                "code": "70166049220",
+                "display": ""
+            }
+        ]
+    },
+    "form": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "None"
+            }
+        ]
+    }
+}
             ,
 
 
