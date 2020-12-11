@@ -1,0 +1,101 @@
+{% import "helpers" as helpers %}
+
+{% if rxGov['PrescriberDeaNumber'] %}
+{
+    "resourceType": "Practitioner",
+    "id": {{helpers.generate_uuid(rxGov['PrescriberDeaNumber'])}},
+    "identifier": [
+        {% if rxGov['PrescriberDeaNumber'] %}
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/v2/0203",
+                        "code": "DEA",
+                        "display": "Drug Enforcement Administration registration number"
+                    }
+                ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-dea",
+            "value": "{{rxGov['PrescriberDeaNumber']}}"
+        },
+        {% endif %}
+        {% if rxGov['PrescriberDeaNumberSuffix'] %}
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/v2/0203",
+                        "code": "DEA",
+                        "display": "Drug Enforcement Administration registration number"
+                    }
+                ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-dea",
+            "value": "{{rxGov['PrescriberDeaNumberSuffix']}}"
+        },
+        {% endif %}
+        {% if rxGov['PrescriberNationalProviderIdentifier'] %}
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/v2/0203",
+                        "code": "NPI",
+                        "display": "National provider identifier"
+                    }
+                ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "{{rxGov['PrescriberNationalProviderIdentifier']}}"
+        },
+        {% endif %}
+        {% if rxGov['PrescriberStateLicenseNumber'] %}
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/v2/0203",
+                        "code": "SL",
+                        "display": "State License"
+                    }
+                ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-sl",
+            "value": "{{rxGov['PrescriberStateLicenseNumber']}}"
+        }
+        {% endif %}
+    ],
+    "name": [
+        {
+            "text": "{{rxGov['PrescriberName']}}",
+            "family": "{{rxGov['PrescriberLastName']}}",
+            "given": [
+                "{{rxGov['PrescriberFirstName']}}"
+            ]
+        }
+    ],
+    {% if rxGov['PrescriberPhoneNumber'] %}
+    "telecom": [
+        {
+            "system": "phone",
+            "value": "{{rxGov['PrescriberPhoneNumber']}}"
+        }
+    ],
+    {% endif %}
+    {% if rxGov['PrescriberAddress1'] %}
+    "address": [
+        {
+            "line": [
+                "{{rxGov['PrescriberAddress1']}}",
+                "{{rxGov['PrescriberAddress2']}}"
+            ],
+            "city": "{{rxGov['PrescriberCity']}}",
+            "district": "{{rxGov['PrescriberCounty']}}",
+            "state": "{{rxGov['PrescriberState']}}",
+            "postalCode": "{{rxGov['PrescriberZip']}}"
+        }
+    ]
+    {% endif %}
+}
+{% endif %}

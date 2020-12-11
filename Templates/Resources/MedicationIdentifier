@@ -1,0 +1,51 @@
+{% import "helpers" as helpers %}
+
+{% if rxGov['PrescriptionNumber'] %}
+{
+    "resourceType": "MedicationRequest",
+    "id": {{helpers.generate_uuid(rxGov['PrescriptionNumber'])}},
+    "identifier": [
+        {
+            "system": "https://api.crisphealth.org/systems/prescriptionNumber",
+            "value": "{{rxGov['PrescriptionNumber']}}"
+        }
+    ],
+    "status": "completed",
+    "intent": "order",
+    {% if rxGov['ProductName'] %}
+    "medicationReference": {
+        "reference": {{helpers.generate_uuid(rxGov['ProductName'])}},
+        "display": "{{rxGov['DrugName']}}"
+    },
+    {% endif %}
+    {% if rxGov['PatientId'] %}
+    "subject": {
+        "reference": {{helpers.generate_uuid(rxGov['PatientId'])}},
+        "display": "{{rxGov['PatientId']}}"
+    },
+    {% endif %}
+    {% if rxGov['DateWritten'] %}
+    "authoredOn": "{{rxGov['DateWritten']}}",
+    {% endif %}
+    {% if rxGov['PrescriberDeaNumber'] %}
+    "requester": {
+        "reference": {{helpers.generate_uuid(rxGov['PrescriberDeaNumber'])}}
+    },
+    {% endif %}
+    {% if rxGov['RouteOfAdministration'] %}
+    "dosageInstruction": [
+        {
+            "route": {
+                "coding": [
+                    {
+                        "system": "http://snomed.info/sct",
+                        "code": "{{rxGov['RouteOfAdministration']}}",
+                        "display": "{{rxGov['RouteOfAdministration']}}"
+                    }
+                ]
+            }
+        }
+    ]
+    {% endif %}
+}
+{% endif %}

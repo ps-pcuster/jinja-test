@@ -1,0 +1,49 @@
+{% import "helpers" as helpers %}
+
+{% if rxGov['PatientId'] %}
+{
+    "resourceType": "Patient",
+    "id": {{helpers.generate_uuid(rxGov['PatientId'])}},
+    "identifier": [
+        {
+            "system": "https://api.crisphealth.org/systems/patientId",
+            "value": "{{rxGov['PatientId']}}"
+        }
+    ],
+    {% if rxGov['PatientFirstName'] %}
+    "name": [
+        {
+            "family": "{{rxGov['PatientLastName']}}",
+            "given": [
+                "{{rxGov['PatientFirstName']}}"
+            ]
+        }
+    ],
+    {% endif %}
+    {% if rxGov['PatientPhoneNumber'] %}
+    "telecom": [
+        {
+            "system": "phone",
+            "value": "{{rxGov['PatientPhoneNumber']}}"
+        }
+    ],
+    {% endif %}
+    {% if rxGov['PatientDateOfBirth'] %}
+    "birthDate": "{{rxGov['PatientDateOfBirth']}}",
+    {% endif %}
+    {% if rxGov['PatientAddress1'] %}
+    "address": [
+        {
+            "line": [
+                "{{rxGov['PatientAddress1']}}",
+                "{{rxGov['PatientAddress2']}}"
+            ],
+            "city": "{{rxGov['PatientCity']}}",
+            "district": "{{rxGov['PatientCountry']}}",
+            "state": "{{rxGov['PatientState']}}",
+            "postalCode": "{{rxGov['PatientZip']}}"
+        }
+    ]
+    {% endif %}
+}
+{% endif %}

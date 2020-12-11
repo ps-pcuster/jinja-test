@@ -1,0 +1,44 @@
+{% import "helpers" as helpers %}
+
+{
+    "resource": {
+        "resourceType": "MedicationDispense",
+        "contained":[
+            {% set contained_comma = joiner(",") %}
+            {{ contained_comma() }}{% include "Resources/Patient" %}
+            {{ contained_comma() }}{% include "Resources/Medication" %}
+            {{ contained_comma() }}{% include "Resources/Practitioner "%}
+            {{ contained_comma() }}{% include "Resources/Location" %}
+            {{ contained_comma() }}{% include "Resources/MedicationIdentifier" %}
+        ],
+        "identifier": {
+            "system": "https://api.crisphealth.org/systems/dispenseId",
+            "value": "{{rxGov['DispenseId']}}"
+        },
+        "status": "InProgress",
+        "medicationReference": {
+            "reference": {{helpers.generate_uuid(rxGov['ProductName'])}},
+            "display": "rxGov['ProductName']"
+        },
+        "subject": {
+            "reference": {{helpers.generate_uuid(rxGov['PatientId'])}},
+            "display": "{{rxGov['PatientId']}}"
+        },
+        "location": {
+            "reference": {{helpers.generate_uuid(rxGov['PharmacyDeaNumber'])}}
+        },
+        "authorizingPrescription": [
+            {
+                "reference": {{helpers.generate_uuid(rxGov['PrescriptionNumber'])}}
+            }
+        ],
+        "quantity": {
+            "value": "{{rxGov['QuantityDispensed']}}"
+        },
+        "daysSupply": {
+            "value": "{{rxGov['DaysSupply']}}"
+        },
+        "whenHandedOver": "{{rxGov['DateSold']}}",
+        "whenPrepared": "{{rxGov['DateFilled']}}"
+    }
+}

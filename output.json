@@ -1,0 +1,597 @@
+{
+    "resourceType": "Bundle",
+    "type": "batch",
+    "entry": [
+        
+        
+            
+
+{
+    "resource": {
+        "resourceType": "MedicationDispense",
+        "contained":[
+            
+            
+
+
+{
+    "resourceType": "Patient",
+    "id": "uuid:1.2.3.4.5.test.",
+    "identifier": [
+        {
+            "system": "https://api.crisphealth.org/systems/patientId",
+            "value": "746"
+        }
+    ],
+    
+    "name": [
+        {
+            "family": "Chatel",
+            "given": [
+                "Clair"
+            ]
+        }
+    ],
+    
+    
+    "telecom": [
+        {
+            "system": "phone",
+            "value": "5188634216"
+        }
+    ],
+    
+    
+    "birthDate": "2004-12-17T00:00:00Z",
+    
+    
+    "address": [
+        {
+            "line": [
+                "0 Commercial Hill",
+                ""
+            ],
+            "city": "Albany",
+            "district": "",
+            "state": "MD",
+            "postalCode": "12227"
+        }
+    ]
+    
+}
+
+            ,
+
+
+{
+    "resourceType": "Medication",
+    "id": "uuid:1.2.3.4.5.test.",
+    "extension": [
+        
+        
+        {
+            "url": "https://api.crisphealth.org/StructureDefinition/mme",
+            "valueString": "1"
+        }
+        
+    ],
+    "code": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/sid/ndc",
+                "code": "57664047108",
+                "display": "Oxycodone HCl 10MG TABS"
+            }
+        ]
+    },
+    
+}
+
+            ,
+
+
+{
+    "resourceType": "Practitioner",
+    "id": "uuid:1.2.3.4.5.test.",
+    "identifier": [
+        
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/v2/0203",
+                        "code": "DEA",
+                        "display": "Drug Enforcement Administration registration number"
+                    }
+                ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-dea",
+            "value": "82788266"
+        },
+        
+        
+        
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/v2/0203",
+                        "code": "NPI",
+                        "display": "National provider identifier"
+                    }
+                ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "49175205"
+        },
+        
+        
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/v2/0203",
+                        "code": "SL",
+                        "display": "State License"
+                    }
+                ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-sl",
+            "value": "0153522806"
+        }
+        
+    ],
+    "name": [
+        {
+            "text": "None",
+            "family": "Smewings",
+            "given": [
+                "Mariette"
+            ]
+        }
+    ],
+    
+    "telecom": [
+        {
+            "system": "phone",
+            "value": "1771957426"
+        }
+    ],
+    
+    
+    "address": [
+        {
+            "line": [
+                " ",
+                " "
+            ],
+            "city": " ",
+            "district": " ",
+            "state": " ",
+            "postalCode": " "
+        }
+    ]
+    
+}
+
+            ,
+
+
+{
+    "resourceType": "Location",
+    "id": "uuid:1.2.3.4.5.test.",
+    "identifier": [
+        
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/v2/0203",
+                        "code": "DEA",
+                        "display": "Drug Enforcement Administration registration number"
+                    }
+                ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-dea",
+            "value": "84663209"
+        },
+        
+        
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/v2/0203",
+                        "code": "NPI",
+                        "display": "National provider identifier"
+                    }
+                ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "65334136"
+        },
+        
+        
+        {
+            "system": "https://api.crisphealth.org/systems/nabp",
+            "value": "757886"
+        }
+        
+    ],
+    
+    "telecom": [
+        {
+            "system": "phone",
+            "value": "3042902341"
+        }
+    ],
+    
+    
+    "address": [
+        {
+            "line": [
+                "13942 Blaine Way",
+                ""
+            ],
+            "city": "Charleston",
+            "district": " ",
+            "state": "MD",
+            "postalCode": "25326"
+        }
+    ],
+    
+    "name": "Bednar, Durgan and Moore"
+}
+
+            ,
+
+
+{
+    "resourceType": "MedicationRequest",
+    "id": "uuid:1.2.3.4.5.test.",
+    "identifier": [
+        {
+            "system": "https://api.crisphealth.org/systems/prescriptionNumber",
+            "value": "9043"
+        }
+    ],
+    "status": "completed",
+    "intent": "order",
+    
+    "medicationReference": {
+        "reference": "uuid:1.2.3.4.5.test.",
+        "display": "None"
+    },
+    
+    
+    "subject": {
+        "reference": "uuid:1.2.3.4.5.test.",
+        "display": "746"
+    },
+    
+    
+    "authoredOn": "2019-01-16T00:00:00Z",
+    
+    
+    "requester": {
+        "reference": "uuid:1.2.3.4.5.test."
+    },
+    
+    
+}
+
+        ],
+        "identifier": {
+            "system": "https://api.crisphealth.org/systems/dispenseId",
+            "value": "2192"
+        },
+        "status": "InProgress",
+        "medicationReference": {
+            "reference": "uuid:1.2.3.4.5.test.",
+            "display": "rxGov['ProductName']"
+        },
+        "subject": {
+            "reference": "uuid:1.2.3.4.5.test.",
+            "display": "746"
+        },
+        "location": {
+            "reference": "uuid:1.2.3.4.5.test."
+        },
+        "authorizingPrescription": [
+            {
+                "reference": "uuid:1.2.3.4.5.test."
+            }
+        ],
+        "quantity": {
+            "value": "45"
+        },
+        "daysSupply": {
+            "value": "46"
+        },
+        "whenHandedOver": "",
+        "whenPrepared": "2019-01-23T00:00:00Z"
+    }
+}
+        
+            ,
+
+{
+    "resource": {
+        "resourceType": "MedicationDispense",
+        "contained":[
+            
+            
+
+
+{
+    "resourceType": "Patient",
+    "id": "uuid:1.2.3.4.5.test.",
+    "identifier": [
+        {
+            "system": "https://api.crisphealth.org/systems/patientId",
+            "value": "746"
+        }
+    ],
+    
+    "name": [
+        {
+            "family": "Chatel",
+            "given": [
+                "Clair"
+            ]
+        }
+    ],
+    
+    
+    "telecom": [
+        {
+            "system": "phone",
+            "value": "5188634216"
+        }
+    ],
+    
+    
+    "birthDate": "2004-12-17T00:00:00Z",
+    
+    
+    "address": [
+        {
+            "line": [
+                "0 Commercial Hill",
+                ""
+            ],
+            "city": "Albany",
+            "district": "",
+            "state": "MD",
+            "postalCode": "12227"
+        }
+    ]
+    
+}
+
+            ,
+
+
+            ,
+
+
+{
+    "resourceType": "Practitioner",
+    "id": "uuid:1.2.3.4.5.test.",
+    "identifier": [
+        
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/v2/0203",
+                        "code": "DEA",
+                        "display": "Drug Enforcement Administration registration number"
+                    }
+                ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-dea",
+            "value": "01293438"
+        },
+        
+        
+        
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/v2/0203",
+                        "code": "NPI",
+                        "display": "National provider identifier"
+                    }
+                ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "16860392"
+        },
+        
+        
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/v2/0203",
+                        "code": "SL",
+                        "display": "State License"
+                    }
+                ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-sl",
+            "value": "5527165960"
+        }
+        
+    ],
+    "name": [
+        {
+            "text": "None",
+            "family": "Waddy",
+            "given": [
+                "Clair"
+            ]
+        }
+    ],
+    
+    "telecom": [
+        {
+            "system": "phone",
+            "value": "6877235264"
+        }
+    ],
+    
+    
+    "address": [
+        {
+            "line": [
+                " ",
+                " "
+            ],
+            "city": " ",
+            "district": " ",
+            "state": " ",
+            "postalCode": " "
+        }
+    ]
+    
+}
+
+            ,
+
+
+{
+    "resourceType": "Location",
+    "id": "uuid:1.2.3.4.5.test.",
+    "identifier": [
+        
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/v2/0203",
+                        "code": "DEA",
+                        "display": "Drug Enforcement Administration registration number"
+                    }
+                ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-dea",
+            "value": "84663209"
+        },
+        
+        
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/v2/0203",
+                        "code": "NPI",
+                        "display": "National provider identifier"
+                    }
+                ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "65334136"
+        },
+        
+        
+        {
+            "system": "https://api.crisphealth.org/systems/nabp",
+            "value": "757886"
+        }
+        
+    ],
+    
+    "telecom": [
+        {
+            "system": "phone",
+            "value": "3042902341"
+        }
+    ],
+    
+    
+    "address": [
+        {
+            "line": [
+                "13942 Blaine Way",
+                ""
+            ],
+            "city": "Charleston",
+            "district": " ",
+            "state": "MD",
+            "postalCode": "25326"
+        }
+    ],
+    
+    "name": "Bednar, Durgan and Moore"
+}
+
+            ,
+
+
+{
+    "resourceType": "MedicationRequest",
+    "id": "uuid:1.2.3.4.5.test.",
+    "identifier": [
+        {
+            "system": "https://api.crisphealth.org/systems/prescriptionNumber",
+            "value": "09733"
+        }
+    ],
+    "status": "completed",
+    "intent": "order",
+    
+    
+    "subject": {
+        "reference": "uuid:1.2.3.4.5.test.",
+        "display": "746"
+    },
+    
+    
+    "authoredOn": "2019-03-03T00:00:00Z",
+    
+    
+    "requester": {
+        "reference": "uuid:1.2.3.4.5.test."
+    },
+    
+    
+}
+
+        ],
+        "identifier": {
+            "system": "https://api.crisphealth.org/systems/dispenseId",
+            "value": "829"
+        },
+        "status": "InProgress",
+        "medicationReference": {
+            "reference": "uuid:1.2.3.4.5.test.",
+            "display": "rxGov['ProductName']"
+        },
+        "subject": {
+            "reference": "uuid:1.2.3.4.5.test.",
+            "display": "746"
+        },
+        "location": {
+            "reference": "uuid:1.2.3.4.5.test."
+        },
+        "authorizingPrescription": [
+            {
+                "reference": "uuid:1.2.3.4.5.test."
+            }
+        ],
+        "quantity": {
+            "value": "40"
+        },
+        "daysSupply": {
+            "value": "81"
+        },
+        "whenHandedOver": "",
+        "whenPrepared": "2019-03-10T00:00:00Z"
+    }
+}
+        
+    ]
+}

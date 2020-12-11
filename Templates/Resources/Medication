@@ -1,0 +1,37 @@
+{% import "helpers" as helpers %}
+
+{
+    "resourceType": "Medication",
+    "id": {{helpers.generate_uuid(rxGov['ProductName'])}},
+    "extension": [
+        {% if rxGov['DeaSchedule'] %}
+        {
+            "url": "https://www.dea.gov/drug-scheduling",
+            "valueString": "{{rxGov['DeaSchedule']}}"
+        },
+        {% endif %}
+        {% if rxGov['MME'] %}
+        {
+            "url": "https://api.crisphealth.org/StructureDefinition/mme",
+            "valueString": "{{rxGov['MME']}}"
+        }
+        {% endif %}
+    ],
+    "code": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/sid/ndc",
+                "code": "{{rxGov['ProductIdentifier']}}",
+                "display": "{{rxGov['ProductName']}}"
+            }
+        ]
+    },
+    "form": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "{{rxGov['DosageForm']}}"
+            }
+        ]
+    }
+}

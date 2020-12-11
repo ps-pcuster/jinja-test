@@ -1,0 +1,10 @@
+{
+    "resourceType": "Bundle",
+    "type": "batch",
+    "entry": [
+        {% set entry_comma = joiner(",") %}
+        {% for rxGov in rxGovResponse %}
+            {{ entry_comma() }}{% include "Resources/MedicationDispense" %}
+        {% endfor %}
+    ]
+}

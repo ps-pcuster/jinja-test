@@ -1,0 +1,69 @@
+{% import "helpers" as helpers %}
+
+{% if rxGov['PharmacyDeaNumber'] %}
+{
+    "resourceType": "Location",
+    "id": {{helpers.generate_uuid(rxGov['PharmacyDeaNumber'])}},
+    "identifier": [
+        {% if rxGov['PharmacyDeaNumber'] %}
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/v2/0203",
+                        "code": "DEA",
+                        "display": "Drug Enforcement Administration registration number"
+                    }
+                ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-dea",
+            "value": "{{rxGov['PharmacyDeaNumber']}}"
+        },
+        {% endif %}
+        {% if rxGov['PharmacyNationalProviderIdentifier'] %}
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/v2/0203",
+                        "code": "NPI",
+                        "display": "National provider identifier"
+                    }
+                ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "{{rxGov['PharmacyNationalProviderIdentifier']}}"
+        },
+        {% endif %}
+        {% if rxGov['PharmacyNcpdpNabpIdentifier'] %}
+        {
+            "system": "https://api.crisphealth.org/systems/nabp",
+            "value": "{{rxGov['PharmacyNcpdpNabpIdentifier']}}"
+        }
+        {% endif %}
+    ],
+    {% if rxGov['PharmacyPhoneNumber'] %}
+    "telecom": [
+        {
+            "system": "phone",
+            "value": "{{rxGov['PharmacyPhoneNumber']}}"
+        }
+    ],
+    {% endif %}
+    {% if rxGov['PharmacyAddress1'] %}
+    "address": [
+        {
+            "line": [
+                "{{rxGov['PharmacyAddress1']}}",
+                "{{rxGov['PharmacyAddress2']}}"
+            ],
+            "city": "{{rxGov['PharmacyCity']}}",
+            "district": "{{rxGov['PharmacyCounty']}}",
+            "state": "{{rxGov['PharmacyState']}}",
+            "postalCode": "{{rxGov['PharmacyZip']}}"
+        }
+    ],
+    {% endif %}
+    "name": "{{rxGov['PharmacyOrPrescriberName']}}"
+}
+{% endif %}
